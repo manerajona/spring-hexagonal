@@ -1,0 +1,9 @@
+{
+  "modelPackage": "org.alkemy.ong.ports.input.rs.dto",
+  "apiPackage": "org.alkemy.ong.ports.input.rs.api",
+  "dateLibrary": "java17",
+  "useBeanValidation": true,
+  "interfaceOnly": true,
+  "useOptional": true,
+  "library": "spring-boot"
+}

@@ -1,0 +1,383 @@
+openapi: 3.0.2
+info:
+  title: ONG Project
+  description: 'API to manage ONG data'
+  version: 1.0.0
+tags:
+  - name: Alkymers
+    description: Alkymers working on the ONG Project
+paths:
+  /alkymers:
+    post:
+      tags:
+        - Create Alkymer
+      summary: Create a new Alkymer
+      operationId: createAlkymers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAlkymerRequest'
+      responses:
+        201:
+          description: Alkymer created
+        400:
+          description: Malformed syntax of the request params
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: BAD_REQUEST
+                detail: Wrong value in request body or parameter..
+        401:
+          description: Authentication has failed or not yet been provided
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: UNAUTHORIZED
+                detail: Wrong credentials.
+        500:
+          description: Server encountered an unespected problem
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: INTERNAL_ERROR
+                detail: There was an error on the server and the request could not be completed.
+    get:
+      tags:
+        - Get Alkymers
+      summary: Returns information about Alkymers
+      operationId: getAlkymers
+      parameters:
+        - in: query
+          name: page
+          allowEmptyValue: true
+          description: page index
+          required: false
+          schema:
+            type: integer
+        - in: query
+          name: size
+          allowEmptyValue: true
+          description: page size
+          required: false
+          schema:
+            type: integer
+      responses:
+        200:
+          description: List of Alkymers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlkymerResponseList'
+        400:
+          description: Malformed syntax of the request params
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: BAD_REQUEST
+                detail: Wrong value in request body or parameter..
+        401:
+          description: Authentication has failed or not yet been provided
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: UNAUTHORIZED
+                detail: Wrong credentials.
+        500:
+          description: Server encountered an unespected problem
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: INTERNAL_ERROR
+                detail: There was an error on the server and the request could not be completed.
+  /alkymers/{id}:
+    patch:
+      tags:
+        - Modify Alkymer
+      summary: Update an existent Alkymer
+      operationId: updateAlkeymer
+      parameters:
+        - in: path
+          name: id
+          allowEmptyValue: false
+          description: Alkymer's id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAlkymerRequest'
+      responses:
+        204:
+          description: Alkeymer modified
+        400:
+          description: Malformed syntax of the request params
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: BAD_REQUEST
+                detail: Wrong value in request body or parameter..
+        401:
+          description: Authentication has failed or not yet been provided
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: UNAUTHORIZED
+                detail: Wrong credentials.
+        404:
+          description: The requested resource doesn't exists or was removed
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: NOT_FOUND
+                detail: The requested resource was not found.
+        500:
+          description: Server encountered an unespected problem
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: INTERNAL_ERROR
+                detail: There was an error on the server and the request could not be completed.
+    delete:
+      tags:
+        - Delete Alkymer
+      summary: Remove an Alkymer
+      operationId: deleteAlkeymer
+      parameters:
+        - in: path
+          name: id
+          allowEmptyValue: false
+          description: Alkymer's id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        204:
+          description: Alkeymer deleted
+        401:
+          description: Authentication has failed or not yet been provided
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: UNAUTHORIZED
+                detail: Wrong credentials.
+        500:
+          description: Server encountered an unespected problem
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: INTERNAL_ERROR
+                detail: There was an error on the server and the request could not be completed.
+    get:
+      tags:
+        - Find Alkymer
+      summary: Returns information about an Alkymer
+      operationId: getAlkymer
+      parameters:
+        - in: path
+          name: id
+          allowEmptyValue: false
+          description: Alkymer's id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: Alkymer's information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlkymerResponse'
+        400:
+          description: Malformed syntax of the request params
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: BAD_REQUEST
+                detail: Wrong value in request body or parameter..
+        401:
+          description: Authentication has failed or not yet been provided
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: UNAUTHORIZED
+                detail: Wrong credentials.
+        404:
+          description: The requested resource doesn't exists or was removed
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: NOT_FOUND
+                detail: The requested resource was not found.
+        500:
+          description: Server encountered an unespected problem
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+              example:
+                code: INTERNAL_ERROR
+                detail: There was an error on the server and the request could not be completed.
+components:
+  schemas:
+    AlkymerResponseList:
+      description: List of Alkymers
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlkymerResponse'
+        nextUri:
+          type: string
+          format: url
+        previousUri:
+          type: string
+          format: url
+        totalPages:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+    AlkymerResponse:
+      description: Trainerof Alkemy
+      type: object
+      properties:
+        id:
+          description: Alkymer's id
+          type: integer
+          format: int64
+        name:
+          description: Alkymer's name
+          type: string
+          format: string
+        startDate:
+          description: Start date on Alkemy
+          type: string
+          format: date-time
+        endDate:
+          description: End date on Alkemy
+          type: string
+          format: date-time
+        skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/SkillResponse'
+    CreateAlkymerRequest:
+      description: New trainer of Alkemy
+      type: object
+      properties:
+        name:
+          description: Alkymer's name
+          type: string
+          format: string
+        startDate:
+          description: Start date on Alkemy
+          type: string
+          format: date-time
+        skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/SkillRequest'
+    UpdateAlkymerRequest:
+      description: Update trainer of Alkemy
+      type: object
+      properties:
+        startDate:
+          description: Start date on Alkemy
+          type: string
+          format: date-time
+        endDate:
+          description: End date on Alkemy
+          type: string
+          format: date-time
+        skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/SkillRequest'
+    SkillResponse:
+      description: Software developer skill
+      type: object
+      properties:
+        name:
+          description: Skill name
+          type: string
+          format: string
+        description:
+          description: Brief description about the skill
+          type: string
+          format: string
+    SkillRequest:
+      description: Software developer skill
+      type: object
+      properties:
+        id:
+          description: Skill's id
+          type: integer
+          format: int64
+    ErrorDetails:
+      type: object
+      properties:
+        code:
+          type: string
+          format: string
+          description: Application error code.
+          example: "NOT_FOUND"
+        detail:
+          type: string
+          format: string
+          description: A short, summary of the problem type
+          example: "The resource 1 was not found."
+        field:
+          type: string
+          format: string
+          description: The field that caused the error. If the field is in the body, set this value to the JSON pointer to that field.
+          example: "$ref: #/id"
+        value:
+          type: string
+          format: object
+          description: The value of the field that caused the error.
+          example: "1"
+        location:
+          type: string
+          format: string
+          description: The location of the field that caused the error. Value is `BODY`, `PATH`, `QUERY` or `HEADER`.
+          example: "PATH"

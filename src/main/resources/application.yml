@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ong
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: "jdbc:mysql://localhost:3306/ongdb?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC"
+    username: root
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: mysql
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  mvc:
+    format:
+      date-time: yyyy-MM-dd HH:mm:ss
+      date: yyyy-MM-dd
+      time: HH:mm:ss
+  jackson:
+    default-property-inclusion: non_null
+    property-naming-strategy: com.fasterxml.jackson.databind.PropertyNamingStrategy.SnakeCaseStrategy
+    visibility:
+      field: any
+      getter: none
+      setter: none
+      is-getter: none
+
+springdoc:
+  swagger-ui:
+    path: '/api/docs'
+
+logging:
+  level:
+    org.springframework.web: INFO
+    org.hibernate: ERROR
