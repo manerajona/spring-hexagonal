@@ -63,11 +63,11 @@ public class AlkymerRepositoryImpl implements AlkymerRepository {
     public Optional<Alkymer> update(Long id, Alkymer alkymer) {
         return alkymerJpaRepository.findById(id)
                 .map(alkymerJpa -> {
-                    alkymerJpa.setStartDate(alkymer.startDate());
-                    alkymerJpa.setEndDate(alkymer.startDate());
+                    Optional.ofNullable(alkymer.startDate()).ifPresent(alkymerJpa::setStartDate);
+                    Optional.ofNullable(alkymer.endDate()).ifPresent(alkymerJpa::setEndDate);
                     alkymer.skills().forEach(addSkillsToAlkymerJpa(alkymerJpa));
-                    alkymerJpa = alkymerJpaRepository.save(alkymerJpa);
 
+                    alkymerJpa = alkymerJpaRepository.save(alkymerJpa);
                     return mapper.alkymerJpaToAlkymer(alkymerJpa);
                 });
     }
