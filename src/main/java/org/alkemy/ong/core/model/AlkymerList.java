@@ -1,4 +1,4 @@
-package org.alkemy.ong.domain.model;
+package org.alkemy.ong.core.model;
 
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;

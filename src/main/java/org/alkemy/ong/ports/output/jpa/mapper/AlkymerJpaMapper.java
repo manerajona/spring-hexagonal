@@ -1,6 +1,6 @@
 package org.alkemy.ong.ports.output.jpa.mapper;
 
-import org.alkemy.ong.domain.model.Alkymer;
+import org.alkemy.ong.core.model.Alkymer;
 import org.alkemy.ong.ports.output.jpa.entity.AlkymerJpa;
 import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;

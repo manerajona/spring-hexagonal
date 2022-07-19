@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  ongmysql:
+    image: mysql:8.0
+    restart: always
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+  ongapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ongspring:latest
+    restart: on-failure
+    ports:
+      - '8080:8080'
+    depends_on:
+      - ongmysql

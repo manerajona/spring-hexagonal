@@ -21,6 +21,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Objects;
@@ -30,7 +31,8 @@ import java.util.Set;
 @Setter
 @ToString
 @NoArgsConstructor
-@Entity(name = "alkymer")
+@Entity
+@Table(name = "alkymer")
 @Where(clause = "is_active=true")
 @SQLDelete(sql = "UPDATE alkymer SET is_active=false WHERE alkymer_id=?")
 @EntityListeners(AuditListener.class)

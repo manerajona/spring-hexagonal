@@ -11,7 +11,7 @@ public class AuditListener {
     public void setCreatedOn(Auditable auditable) {
         Audit audit = auditable.getAudit();
 
-        if(audit == null) {
+        if (audit == null) {
             audit = new Audit();
             auditable.setAudit(audit);
         }

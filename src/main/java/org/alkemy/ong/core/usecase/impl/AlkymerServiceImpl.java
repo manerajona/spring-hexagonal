@@ -1,10 +1,10 @@
-package org.alkemy.ong.domain.usecase.impl;
+package org.alkemy.ong.core.usecase.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.alkemy.ong.domain.model.Alkymer;
-import org.alkemy.ong.domain.model.AlkymerList;
-import org.alkemy.ong.domain.repository.AlkymerRepository;
-import org.alkemy.ong.domain.usecase.AlkymerService;
+import org.alkemy.ong.core.model.Alkymer;
+import org.alkemy.ong.core.model.AlkymerList;
+import org.alkemy.ong.core.repository.AlkymerRepository;
+import org.alkemy.ong.core.usecase.AlkymerService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 

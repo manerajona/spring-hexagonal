@@ -1,6 +1,6 @@
 package org.alkemy.ong.ports.input.rs.mapper;
 
-import org.alkemy.ong.domain.model.Alkymer;
+import org.alkemy.ong.core.model.Alkymer;
 import org.alkemy.ong.ports.input.rs.dto.AlkymerResponse;
 import org.alkemy.ong.ports.input.rs.dto.CreateAlkymerRequest;
 import org.alkemy.ong.ports.input.rs.dto.UpdateAlkymerRequest;

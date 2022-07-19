@@ -1,4 +1,4 @@
-package org.alkemy.ong.configuration.exception;
+package org.alkemy.ong.config.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

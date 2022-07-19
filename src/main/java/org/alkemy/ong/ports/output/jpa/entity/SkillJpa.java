@@ -16,6 +16,7 @@ import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -24,7 +25,8 @@ import java.util.Set;
 @Setter
 @ToString
 @NoArgsConstructor
-@Entity(name = "skill")
+@Entity
+@Table(name = "skill")
 @Where(clause = "is_active=true")
 @SQLDelete(sql = "UPDATE skill SET is_active=false WHERE skill_id=?")
 @EntityListeners(AuditListener.class)

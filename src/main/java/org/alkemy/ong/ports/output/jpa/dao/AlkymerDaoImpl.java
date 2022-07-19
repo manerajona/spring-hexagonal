@@ -1,10 +1,10 @@
-package org.alkemy.ong.ports.output.jpa;
+package org.alkemy.ong.ports.output.jpa.dao;
 
 import lombok.RequiredArgsConstructor;
-import org.alkemy.ong.domain.model.Alkymer;
-import org.alkemy.ong.domain.model.AlkymerList;
-import org.alkemy.ong.domain.model.Skill;
-import org.alkemy.ong.domain.repository.AlkymerRepository;
+import org.alkemy.ong.core.model.Alkymer;
+import org.alkemy.ong.core.model.AlkymerList;
+import org.alkemy.ong.core.model.Skill;
+import org.alkemy.ong.core.repository.AlkymerRepository;
 import org.alkemy.ong.ports.output.jpa.entity.AlkymerJpa;
 import org.alkemy.ong.ports.output.jpa.mapper.AlkymerJpaMapper;
 import org.alkemy.ong.ports.output.jpa.repository.AlkymerJpaRepository;
@@ -22,7 +22,7 @@ import java.util.function.Consumer;
 @Primary
 @Component
 @RequiredArgsConstructor
-public class AlkymerRepositoryImpl implements AlkymerRepository {
+public class AlkymerDaoImpl implements AlkymerRepository {
 
     private final AlkymerJpaRepository alkymerJpaRepository;
     private final SkillJpaRepository skillJpaRepository;

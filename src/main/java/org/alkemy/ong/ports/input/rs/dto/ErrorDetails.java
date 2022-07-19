@@ -3,8 +3,8 @@ package org.alkemy.ong.ports.input.rs.dto;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Builder;
 import lombok.Value;
-import org.alkemy.ong.configuration.exception.error.ApplicationErrorCode;
-import org.alkemy.ong.configuration.exception.error.ErrorLocation;
+import org.alkemy.ong.config.exception.error.ErrorCode;
+import org.alkemy.ong.config.exception.error.ErrorLocation;
 
 import javax.validation.constraints.NotNull;
 
@@ -12,31 +12,9 @@ import javax.validation.constraints.NotNull;
 @Builder
 @JsonPropertyOrder({"code", "detail", "field", "value", "location"})
 public class ErrorDetails {
-
-    /**
-     * The unique and fine-grained application-level error code.
-     */
-    @NotNull ApplicationErrorCode code;
-
-    /**
-     * The human-readable description for an issue. Provide non-standard more granular error message.
-     */
+    @NotNull ErrorCode code;
     @NotNull String detail;
-
-    /**
-     * The field that caused the error. If the field is in the body, set this value to the JSON pointer to that field.
-     * Example: "field": {"$ref": "#/body-field"}
-     */
     String field;
-
-    /**
-     * The value of the field that caused the error.
-     */
     Object value;
-
-    /**
-     * The location of the field that caused the error. Value is `BODY`, `PATH`, `QUERY` or `HEADER`.
-     */
     ErrorLocation location;
-
 }

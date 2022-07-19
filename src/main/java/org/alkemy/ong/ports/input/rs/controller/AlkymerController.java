@@ -1,10 +1,10 @@
 package org.alkemy.ong.ports.input.rs.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.alkemy.ong.configuration.exception.NotFoundException;
-import org.alkemy.ong.domain.model.Alkymer;
-import org.alkemy.ong.domain.model.AlkymerList;
-import org.alkemy.ong.domain.usecase.AlkymerService;
+import org.alkemy.ong.config.exception.NotFoundException;
+import org.alkemy.ong.core.model.Alkymer;
+import org.alkemy.ong.core.model.AlkymerList;
+import org.alkemy.ong.core.usecase.AlkymerService;
 import org.alkemy.ong.ports.input.rs.api.AlkymersApi;
 import org.alkemy.ong.ports.input.rs.api.ApiConstants;
 import org.alkemy.ong.ports.input.rs.dto.AlkymerResponse;
