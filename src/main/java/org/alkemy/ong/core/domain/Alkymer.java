@@ -1,4 +1,4 @@
-package org.alkemy.ong.core.model;
+package org.alkemy.ong.core.domain;
 
 import java.time.LocalDateTime;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package org.alkemy.ong.core.model;
+package org.alkemy.ong.core.domain;
 
 public record Skill(
         Long id,

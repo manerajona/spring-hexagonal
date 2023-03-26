@@ -1,7 +1,7 @@
 package org.alkemy.ong.core.usecase;
 
-import org.alkemy.ong.core.model.Alkymer;
-import org.alkemy.ong.core.model.AlkymerList;
+import org.alkemy.ong.core.domain.Alkymer;
+import org.alkemy.ong.core.domain.AlkymerList;
 import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;

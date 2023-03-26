@@ -1,9 +1,9 @@
 package org.alkemy.ong.ports.output.jpa.dao;
 
 import lombok.RequiredArgsConstructor;
-import org.alkemy.ong.core.model.Alkymer;
-import org.alkemy.ong.core.model.AlkymerList;
-import org.alkemy.ong.core.model.Skill;
+import org.alkemy.ong.core.domain.Alkymer;
+import org.alkemy.ong.core.domain.AlkymerList;
+import org.alkemy.ong.core.domain.Skill;
 import org.alkemy.ong.core.repository.AlkymerRepository;
 import org.alkemy.ong.ports.output.jpa.entity.AlkymerJpa;
 import org.alkemy.ong.ports.output.jpa.mapper.AlkymerJpaMapper;
